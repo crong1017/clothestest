@@ -1,0 +1,268 @@
+/* 基本樣式 */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f9f9f9;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-sizing: border-box;
+}
+
+/* 會員登入和購物車按鈕樣式 */
+.user-controls {
+    text-align: center;
+    margin: 20px 0;
+}
+
+.user-controls .login-btn, .user-controls .cart-btn {
+    background-color: #6b4f3b;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1.2em;
+    cursor: pointer;
+    margin: 0 10px;
+    border-radius: 5px;
+}
+
+.user-controls .login-btn:hover, .user-controls .cart-btn:hover {
+    background-color: #b3581c;
+}
+
+/* 會員登入彈跳視窗樣式 */
+.modal {
+    display: none; /* 預設隱藏 */
+    position: fixed;
+    z-index: 1000;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 300px;
+    background-color: #f4e1d2;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.modal-content {
+    text-align: center;
+}
+
+.close {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 1.5em;
+    cursor: pointer;
+}
+
+/* 購物車彈跳視窗樣式 */
+.modal-content {
+    background-color: white;
+    padding: 20px;
+    text-align: center;
+    border-radius: 10px;
+    width: 300px;
+    margin: 0 auto;
+    position: relative;
+}
+
+#cartItems {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+#cartItems li {
+    margin-bottom: 10px;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 5px;
+}
+
+.close {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    font-size: 1.5em;
+    cursor: pointer;
+}
+
+/* 左側導航欄 */
+.sidebar {
+    position: fixed; /* 固定在左側 */
+    top: 0;
+    left: 0;
+    width: 200px;
+    height: 100%;
+    background-color: #6b4f3b; /* 深棕色背景 */
+    padding: 20px;
+}
+
+.navigation {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.navigation li {
+    margin-bottom: 15px;
+}
+
+.navigation li a {
+    color: #ffdd99;
+    text-decoration: none;
+    font-size: 1.1em;
+}
+
+.navigation li a:hover {
+    color: #ffffff;
+}
+
+/* 主要內容區域 */
+main {
+    margin-left: 220px; /* 給側邊欄留出空間 */
+    padding: 20px;
+    width: calc(100% - 220px);
+}
+
+/* 頁面標題 */
+.site-title {
+    font-size: 2.5em;
+    color: #6b4f3b; /* 深棕色 */
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* 促銷按鈕 */
+.promotion {
+    text-align: center;
+    margin: 20px 0;
+}
+
+.promotion button {
+    background-color: #d2691e; /* 橙棕色 */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1.2em;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.promotion button:hover {
+    background-color: #b3581c;
+}
+
+/* 商品展示區塊，使用4格佈局 */
+.product-display {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 兩列顯示 */
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.product {
+    background-color: white;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.product img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    object-fit: cover; /* 保持圖片比例 */
+    max-height: 200px; /* 限制圖片高度 */
+}
+
+.product p {
+    margin-top: 10px;
+    font-size: 1.1em;
+    color: #333;
+}
+
+/* 棕色背景區塊，為頁面增添更多棕色 */
+header {
+    background-color: #f4e1d2; /* 輕棕色背景 */
+    padding: 10px;
+    border-radius: 8px;
+}
+
+/* 促銷文字樣式 */
+.promo-text {
+    color: #d2691e;
+    font-size: 1.1em;
+    margin: 10px 0;
+}
+
+.promo-text a {
+    color: #d2691e;
+    text-decoration: none;
+}
+
+.promo-text a:hover {
+    text-decoration: underline;
+}
+/* 基本樣式 */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.announcement-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.announcement-box {
+    background-color: #ffffff;
+    border-radius: 10px;
+    padding: 40px;
+    max-width: 500px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.announcement-title {
+    font-size: 2em;
+    color: #6b4f3b;
+    margin-bottom: 20px;
+}
+
+.announcement-message {
+    font-size: 1.2em;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.thanks-message {
+    font-size: 1.1em;
+    color: #6b4f3b;
+    margin-bottom: 40px;
+}
+
+.back-btn {
+    background-color: #6b4f3b;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.2em;
+    cursor: pointer;
+}
+
+.back-btn:hover {
+    background-color: #b3581c;
+}

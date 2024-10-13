@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>商品展示頁面</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- 左側分類導航欄 -->
+<aside class="sidebar">
+  <ul class="navigation">
+    <li><a href="index.html">首頁</a></li>
+    <li><a href="page2.html">人氣排行榜前3</a></li>
+    <li><a href="page3.html">秋冬新品</a></li>
+    <li><a href="page4.html">套裝系列</a></li>
+    <li><a href="page5.html">上衣</a></li>
+    <li><a href="page6.html">下裝</a></li>
+    <li><a href="page7.html">外套</a></li>
+    <li><a href="page8.html">飾品</a></li>
+    <li><a href="page9.html">購物車等維修問題</a></li>
+  </ul>
+</aside>
+
+<!-- 主要內容區域 -->
+<main>
+  <header>
+    <h1 class="site-title">下裝</h1>
+  </header>
+
+  <!-- 商品展示區 -->
+  <section class="product-display">
+    <div class="product" data-product-name="牛仔褲" data-product-price="500">
+      <img src="images/paint1.jpg" alt="商品展示1">
+      <p>牛仔褲</p>
+      <p>NT.500</p>
+    </div>
+    <div class="product" data-product-name="棉褲" data-product-price="450">
+      <img src="images/paint2.jpg" alt="商品展示3">
+      <p>棉褲</p>
+      <p>NT.450</p>
+    </div>
+      <div class="product" data-product-name="喇叭褲" data-product-price="550">
+      <img src="images/paint3.jpg" alt="商品展示3">
+      <p>喇叭褲</p>
+      <p>NT.550</p>
+    </div>
+    <!-- 可以繼續添加更多商品 -->
+  </section>
+
+  <!-- 彈跳視窗結構 -->
+  <div id="cartModal" class="modal">
+    <div class="modal-content">
+      <span class="close" id="closeModal">&times;</span>
+      <p id="modalText">是否要將商品加入購物車？</p>
+      <button id="confirmAddToCart">加入購物車</button>
+      <button id="cancelAddToCart">取消</button>
+    </div>
+  </div>
+</main>
+
+<!-- JavaScript 文件 -->
+<script>
+  const products = document.querySelectorAll('.product');
+  const cartModal = document.getElementById('cartModal');
+  const closeModal = document.getElementById('closeModal');
+  const confirmAddToCart = document.getElementById('confirmAddToCart');
+  const cancelAddToCart = document.getElementById('cancelAddToCart');
+  const modalText = document.getElementById('modalText');
+
+  let selectedProduct = {}; // 保存選中的產品信息
+
+  // 點擊商品時，顯示彈跳視窗
+  products.forEach(product => {
+    product.addEventListener('click', function(event) {
+      event.preventDefault();
+      const productName = this.getAttribute('data-product-name');
+      const productPrice = this.getAttribute('data-product-price');
+      selectedProduct = {
+        name: productName,
+        price: productPrice
+      };
+      modalText.innerHTML = `是否要將「${productName} - NT.${productPrice}」加入購物車？`;
+      cartModal.style.display = 'block';
+    });
+  });
+
+  // 點擊「加入購物車」按鈕時，將商品加入購物車
+  confirmAddToCart.addEventListener('click', function() {
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+    const cartItem = {
+      productName: selectedProduct.name,
+      price: selectedProduct.price,
+      quantity: 1
+    };
+
+    cart.push(cartItem);
+    localStorage.setItem('cart', JSON.stringify(cart));
+
+    alert('商品已加入購物車！');
+    cartModal.style.display = 'none';
+  });
+
+  // 點擊「取消」按鈕時，關閉彈跳視窗
+  cancelAddToCart.addEventListener('click', function() {
+    cartModal.style.display = 'none';
+  });
+
+  // 點擊關閉按鈕時，關閉彈跳視窗
+  closeModal.addEventListener('click', function() {
+    cartModal.style.display = 'none';
+  });
+
+  // 點擊彈跳視窗外部時，關閉彈跳視窗
+  window.addEventListener('click', function(event) {
+    if (event.target === cartModal) {
+      cartModal.style.display = 'none';
+    }
+  });
+</script>
+
+</body>
+</html>
