@@ -28,10 +28,6 @@ document.addEventListener('DOMContentLoaded', function () {
     let selectedProduct = null;
     let cart = JSON.parse(localStorage.getItem('cart')) || []; // 從本地儲存讀取購物車資料
 
-    <section className="promotion">
-        <button onClick="window.location.href='promotion.html'">查看優惠信息</button>
-    </section>
-
     // 更新購物車清單
     function updateCart() {
         cartItems.innerHTML = '';
@@ -50,14 +46,18 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     // 顯示購物車的邏輯
-    cartBtn.addEventListener('click', function () {
-        updateCart();
-        cartModal.style.display = 'block';
-    });
+    if (cartBtn) {
+        cartBtn.addEventListener('click', function () {
+            updateCart();
+            cartModal.style.display = 'block';
+        });
+    }
 
-    closeCartModal.addEventListener('click', function () {
-        cartModal.style.display = 'none';
-    });
+    if (closeCartModal) {
+        closeCartModal.addEventListener('click', function () {
+            cartModal.style.display = 'none';
+        });
+    }
 
     // 監聽「加入購物車」按鈕點擊
     document.querySelectorAll('.addToCartBtn').forEach(button => {
@@ -65,9 +65,6 @@ document.addEventListener('DOMContentLoaded', function () {
             const productName = this.getAttribute('data-product-name');
             const productPrice = this.getAttribute('data-product-price');
 
-            // 將這些值輸出到控制台，檢查它們是否正確
-            console.log('Product Name:', productName);
-            console.log('Product Price:', productPrice);
             if (!productName || !productPrice) {
                 alert('商品資料有誤，請稍後再試');
                 return;
@@ -87,36 +84,46 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     // 結帳
-    checkoutBtn.addEventListener('click', function () {
-        checkoutModal.style.display = 'block';
-    });
+    if (checkoutBtn) {
+        checkoutBtn.addEventListener('click', function () {
+            checkoutModal.style.display = 'block';
+        });
+    }
 
     // 處理支付方式選擇
-    codPayment.addEventListener('click', function () {
-        alert('您選擇了貨到付款');
-        cart = []; // 清空購物車
-        localStorage.setItem('cart', JSON.stringify(cart)); // 更新本地儲存
-        updateCart(); // 更新購物車顯示
-        checkoutModal.style.display = 'none'; // 關閉結帳視窗
-    });
+    if (codPayment) {
+        codPayment.addEventListener('click', function () {
+            alert('您選擇了貨到付款');
+            cart = []; // 清空購物車
+            localStorage.setItem('cart', JSON.stringify(cart)); // 更新本地儲存
+            updateCart(); // 更新購物車顯示
+            checkoutModal.style.display = 'none'; // 關閉結帳視窗
+        });
+    }
 
-    creditPayment.addEventListener('click', function () {
-        alert('您選擇了信用卡支付');
-        cart = []; // 清空購物車
-        localStorage.setItem('cart', JSON.stringify(cart)); // 更新本地儲存
-        updateCart(); // 更新購物車顯示
-        checkoutModal.style.display = 'none'; // 關閉結帳視窗
-    });
+    if (creditPayment) {
+        creditPayment.addEventListener('click', function () {
+            alert('您選擇了信用卡支付');
+            cart = []; // 清空購物車
+            localStorage.setItem('cart', JSON.stringify(cart)); // 更新本地儲存
+            updateCart(); // 更新購物車顯示
+            checkoutModal.style.display = 'none'; // 關閉結帳視窗
+        });
+    }
 
     // 顯示會員登入彈跳視窗
-    loginBtn.addEventListener('click', function () {
-        loginModal.style.display = 'block'; // 顯示登入視窗
-    });
+    if (loginBtn) {
+        loginBtn.addEventListener('click', function () {
+            loginModal.style.display = 'block'; // 顯示登入視窗
+        });
+    }
 
     // 關閉會員登入彈跳視窗
-    closeLoginModal.addEventListener('click', function () {
-        loginModal.style.display = 'none'; // 關閉登入視窗
-    });
+    if (closeLoginModal) {
+        closeLoginModal.addEventListener('click', function () {
+            loginModal.style.display = 'none'; // 關閉登入視窗
+        });
+    }
 
     // 點擊外部區域關閉彈跳視窗
     window.addEventListener('click', function (event) {
