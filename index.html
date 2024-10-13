@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>商品展示頁面</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<aside class="sidebar">
+    <nav>
+        <ul class="navigation">
+            <li><a href="page1.html">所有商品</a></li>
+            <li><a href="page2.html">人氣排行榜前3</a></li>
+            <li><a href="page3.html">秋冬新品</a></li>
+            <li><a href="page4.html">套裝系列</a></li>
+            <li><a href="page5.html">上衣</a></li>
+            <li><a href="page6.html">下裝</a></li>
+            <li><a href="page7.html">外套</a></li>
+            <li><a href="page8.html">飾品</a></li>
+            <li><a href="page9.html">購物車等維修問題</a></li>
+        </ul>
+    </nav>
+</aside>
+
+<main>
+    <header>
+        <h1 class="site-title">WEEKEND</h1>
+        <!-- 添加會員登入和購物車清單按鈕 -->
+        <div class="user-controls">
+            <button class="login-btn" id="loginBtn">會員登入</button>
+            <button class="cart-btn" id="cartBtn">購物車清單</button>
+        </div>
+    </header>
+
+    <section class="promotion">
+        <a href="promotion.html">
+        <button >查看優惠信息</button>
+        </a>
+    </section>
+
+    <!-- 會員登入彈跳視窗結構 -->
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <span class="close" id="closeLoginModal">&times;</span>
+            <h2>會員登入</h2>
+            <label for="username">帳號：</label>
+            <input type="text" id="username" name="username" required>
+            <label for="password">密碼：</label>
+            <input type="password" id="password" name="password" required>
+            <button id="submitLogin">登入</button>
+        </div>
+    </div>
+    <!-- 購物車彈跳視窗結構 -->
+    <div id="cartModal" class="modal">
+        <div class="modal-content">
+            <span class="close" id="closeCartModal">&times;</span>
+            <h2>購物車清單</h2>
+            <ul id="cartItems"></ul>
+            <p id="cartTotal">總金額：NT. 0</p>
+            <button id="checkoutBtn">結帳</button>
+        </div>
+    </div>
+
+    <!-- 購物車結帳彈跳視窗 -->
+    <div id="checkoutModal" class="modal">
+        <div class="modal-content">
+            <span class="close" id="closeCheckoutModal">&times;</span>
+            <h2>選擇支付方式</h2>
+            <button id="codPayment">貨到付款</button>
+            <button id="creditPayment">信用卡支付</button>
+        </div>
+    </div>
+    </div>
+
+    <section class="product-display">
+        <div class="product">
+            <img src="images/path_to_image1.jpg" alt="商品展示1">
+            <p>秋季禮包 - 特價 280</p>
+            <button class="addToCartBtn" data-product-name="秋季禮包" data-product-price="280">加入購物車</button>
+        </div>
+        <div class="product">
+            <img src="images/path_to_image2.jpg" alt="商品展示2">
+            <p>隨機 冬季服飾 - 特價 480</p>
+            <button class="addToCartBtn" data-product-name="隨機 冬季服飾" data-product-price="480">加入購物車</button>
+        </div>
+        <div class="product">
+            <img src="images/path_to_image3.jpg" alt="商品展示3">
+            <p>夏季出清 - 特價 300</p>
+            <button class="addToCartBtn" data-product-name="夏季出清" data-product-price="300">加入購物車</button>
+        </div>
+        <div class="product">
+            <img src="images/path_to_image4.jpg" alt="商品展示4">
+            <p>其他裝飾品 - 特價 150</p>
+            <button class="addToCartBtn" data-product-name="其他裝飾品" data-product-price="150">加入購物車</button>
+        </div>
+    </section>
+</main>
+
+<!-- 引用 JavaScript 文件 -->
+<script src="script.js"></script>
+
+</body>
+</html>
